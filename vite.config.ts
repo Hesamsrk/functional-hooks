@@ -1,9 +1,8 @@
-import { resolve } from 'node:path'
-import { defineConfig } from 'vite'
+import {resolve} from 'node:path'
+import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
 import tsConfigPaths from 'vite-tsconfig-paths'
-import dts from 'vite-plugin-dts'
-import { EsLinter, linterPlugin } from 'vite-plugin-linter'
+import {EsLinter, linterPlugin} from 'vite-plugin-linter'
 
 // https://vitejs.dev/config/
 export default defineConfig(configEnv => ({
@@ -11,20 +10,13 @@ export default defineConfig(configEnv => ({
     react(),
     tsConfigPaths(),
     linterPlugin({
-      include: ['./src}/**/*.{ts,tsx}'],
-      linters: [new EsLinter({ configEnv })],
-    }),
-    dts({
-      include: ['lib/main.tsx'],
-      beforeWriteFile: (filePath, content) => ({
-        filePath: filePath.replace('/lib', ''),
-        content,
-      }),
-    }),
+      include: ['./src/**/*.{ts,tsx}'],
+      linters: [new EsLinter({configEnv})],
+    })
   ],
   build: {
     lib: {
-      entry: resolve('lib', 'functional-hooks.tsx'),
+      entry: resolve('lib', 'index.ts'),
       name: 'ReactFeatureFlag',
       fileName: (format) => `functional-hooks.${format}.js`,
     },

@@ -10,9 +10,11 @@
   "bugs": {
     "url": "https://github.com/hesamsrk/functional-hooks/issues"
   },
-  "version": "1.0.6",
+  "version": "1.0.10",
   "files": [
-    "dist"
+    "dist",
+    "lib",
+    "types"
   ],
   "keywords": [
     "functional-hooks",
@@ -28,16 +30,15 @@
       "require": "./dist/functional-hooks.umd.js"
     }
   },
-  "types": "./dist/lib/functional-hooks.d.ts",
+  "types": "./types/functional-hooks.d.ts",
   "scripts": {
     "dev": "vite",
-    "build": "rimraf ./dist && tsc && vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src --ext ts,tsx",
     "lint:fix": "yarn lint --fix",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
-    "ci": "yarn lint && yarn type-check",
-    "prepare": "husky install"
+    "ci": "yarn lint && yarn type-check"
   },
   "peerDependencies": {
     "react": ">=17.x"
@@ -62,10 +63,8 @@
     "react-dom": "17.0.2",
     "typescript": "4.6.2",
     "vite": "2.8.6",
-    "vite-plugin-dts": "0.9.10",
+    "vite-plugin-dts": "^1.0.2",
     "vite-plugin-linter": "0.2.4",
     "vite-tsconfig-paths": "3.4.1"
   }
 }
-
-

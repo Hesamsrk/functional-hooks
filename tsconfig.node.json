@@ -9,7 +9,7 @@
   ],
   "paths": {
     "@hesamsrk functional-hooks": [
-      "./lib/functional-hooks.tsx"
+      "./lib/index.ts"
     ]
   }
 }
