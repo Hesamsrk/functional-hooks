@@ -1,6 +1,6 @@
 import {Dispatch, SetStateAction, useEffect, useState} from "react";
 
-interface CallbackType {
+export interface CallbackType {
     after?: () => void;
     before?: () => void;
 }
@@ -41,4 +41,3 @@ export const useDebouncedState = <S>(
     return [debouncedValue, setValue, setDebouncedValue];
 };
 
-export default useDebouncedState

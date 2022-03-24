@@ -4,5 +4,14 @@
     "module": "esnext",
     "moduleResolution": "node"
   },
-  "include": ["vite.config.ts"]
+  "include": [
+    "vite.config.ts"
+  ],
+  "paths": {
+    "@hesamsrk functional-hooks": [
+      "./lib/functional-hooks.tsx"
+    ]
+  }
 }
+
+

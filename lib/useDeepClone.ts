@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import useDebouncedState from "./useDebouncedState";
 
 export const deepClone = <T extends object>(input: T): T => {
     if (typeof input !== 'object') {
@@ -31,4 +30,3 @@ export const useDeepClone = <S extends object>(toBeClonedState: S): S => {
 };
 
 
-export default useDeepClone;

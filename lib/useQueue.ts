@@ -45,4 +45,3 @@ export const useQueue: UseQueue = <T>(
     };
 };
 
-export default useQueue

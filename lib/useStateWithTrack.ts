@@ -2,7 +2,7 @@ import {useState} from "react";
 import {Queue, useQueue} from "./useQueue";
 
 
-interface Options<S> {
+export interface Options<S> {
     getFormerValue: (whichOne?: number) => S | undefined
     queue: Queue<S | undefined>
 }
@@ -31,4 +31,3 @@ export const useStateWithTrack = <S>(
 };
 
 
-export default useStateWithTrack
