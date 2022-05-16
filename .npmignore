@@ -5,3 +5,4 @@ lib
 src
 tsconfig.json
 vite.config.ts
+README-pattern.md
