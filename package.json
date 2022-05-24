@@ -19,7 +19,8 @@
   "keywords": [
     "functional-hooks",
     "react",
-    "hook"
+    "hook",
+    "custom"
   ],
   "license": "MIT",
   "main": "./dist/functional-hooks.umd.js",
