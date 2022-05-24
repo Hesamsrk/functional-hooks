@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/hesamsrk/functional-hooks/issues"
   },
-  "version": "1.0.10",
+  "version": "1.1.1",
   "files": [
     "dist",
     "lib",
@@ -36,6 +36,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "npm:login": "npm login",
     "lint": "eslint src --ext ts,tsx",
     "lint:fix": "yarn lint --fix",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",

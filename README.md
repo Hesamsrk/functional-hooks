@@ -4,10 +4,11 @@ Just another react custom hook library focused on being light-weight, simple, an
 
 ## Credits
 
-- This library uses [Vite](https://vitejs.dev/) as build environment for minimal and robust results.
+- [functional-hooks](https://www.npmjs.com/package/functional-hooks) uses [Vite](https://vitejs.dev/) as build
+  environment for minimal and robust results.
   <be>
-- This library is created using [typescript](https://www.typescriptlang.org/) so all the type definitions are built-in
-  and no external package needs to be installed.
+- It's also implemented using [typescript](https://www.typescriptlang.org/) so all the type definitions are built-in and
+  no external package needs to be installed.
 
 ## Index
 
@@ -15,8 +16,12 @@ Just another react custom hook library focused on being light-weight, simple, an
   - [Credits](#credits)
   - [Index](#index)
   - [Installation](#installation)
-- [Documentations & Examples](#Documentation and examples)
-  - [useDebouncedState](#Use Debounced State)
+- [Documentation](#documentation)
+  - [useDebouncedState](#usedebouncedstate)
+  - [useDeepClone](#usedeepclone)
+  - [useLocalStorage](#uselocalstorage)
+  - [useQueue](#usequeue)
+  - [useStateWithTrack](#usestatewithtrack)
 
 ## Installation
 
@@ -27,9 +32,9 @@ npm install functional-hooks
 yarn add functional-hooks
 ```
 
-# Documentation and examples
+# Documentation
 
-## Use Debounced State
+## useDebouncedState
 
 Works as a normal react built-in [useState](https://reactjs.org/docs/hooks-state.html) hook, in addition, the state will
 be set as a debounced value after a dedicated delay.<br><br>
@@ -41,14 +46,14 @@ again during the timeout, otherwise, the timeout is going to be restarted.
   its value in a debounced state using this hook and send the search request to server after this state is set to a
   value.
 
-[Example](examples/useDebouncedState.example.tsx)
+[See the code below on github](examples/useDebouncedState.example.tsx)
 
 ```tsx
 import {useDebouncedState} from "../lib";
 import React, {useState} from "react";
 
 export const MyCoolSearchInput = () => {
-    
+
   const [results, setResults] = useState(null)
   const [searchValue, setSearchValue, instantlySetValue] = useDebouncedState<string>("", 3000, {
     after: async () => {
@@ -71,3 +76,74 @@ export const MyCoolSearchInput = () => {
 }
 
 ```
+
+## useDeepClone
+
+It works as a duplicator for your states or props. You can create, keep and modify the component specific version of a
+particular state or prop.
+
+[See the code below on github](examples/useDeepClone.example.tsx)
+
+```tsx
+import {useDeepClone} from "functional-hooks";
+import React, {FunctionComponent} from "react";
+
+interface Post {
+  id: number
+  title: string
+  content: string
+  author: string
+  date: Date
+}
+
+
+export const SomeComponent: FunctionComponent<{ Posts: Post[] }> = (
+  {Posts}
+) => {
+  const [internalPosts, setInternalPosts] = useDeepClone<Post[]>(Posts)
+
+  return <main>
+    {internalPosts.map(post => (
+      <section>
+        <title>
+          {post.title}
+        </title>
+        <div>
+          {post.content}
+        </div>
+        <button onClick={() => setInternalPosts((prevState => prevState.filter((item) => item.id === post.id)))}>
+          Remove Post
+        </button>
+      </section>
+    ))}
+  </>
+
+}
+```
+
+## useLocalStorage
+
+Gives you the access to local storage I/O and lets you to read from and write to it much easier.
+<br/>
+
+- It works like a simple useState hook. In addition, the state will be consistent and will not be removed after user
+  refreshes the page.
+
+`Example: Coming soon!`
+
+## useQueue
+
+Works as a normal react built-in [useState](https://reactjs.org/docs/hooks-state.html) hook, in addition, the state will
+be a queue.
+
+`Example: Coming soon!`
+
+## useStateWithTrack
+
+Works as a normal react built-in [useState](https://reactjs.org/docs/hooks-state.html) hook, in addition, the
+state's <b>history</b> will be preserved in the memory and user can access to the former values of that particular state
+at any time.
+
+- User can determine the size of items kept in the memory.
+
+`Example: Coming soon!`
