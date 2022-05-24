@@ -49,7 +49,7 @@ again during the timeout, otherwise, the timeout is going to be restarted.
 [See the code below on github](examples/useDebouncedState.example.tsx)
 
 ```tsx
-import {useDebouncedState} from "../lib";
+import {useDebouncedState} from "functional-hooks";
 import React, {useState} from "react";
 
 export const MyCoolSearchInput = () => {

@@ -38,6 +38,8 @@
     "preview": "vite preview",
     "npm:login": "npm login",
     "npm:patch": "npm version patch",
+    "npm:minor": "npm version minor",
+    "npm:major": "npm version major",
     "npm:publish": "npm publish",
     "lint": "eslint src --ext ts,tsx",
     "lint:fix": "yarn lint --fix",
