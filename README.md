@@ -116,8 +116,7 @@ export const SomeComponent: FunctionComponent<{ Posts: Post[] }> = (
         </button>
       </section>
     ))}
-  </>
-
+  </main>
 }
 ```
 
