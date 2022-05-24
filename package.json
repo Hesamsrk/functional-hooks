@@ -37,6 +37,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "npm:login": "npm login",
+    "npm:patch": "npm version patch",
+    "npm:publish": "npm publish",
     "lint": "eslint src --ext ts,tsx",
     "lint:fix": "yarn lint --fix",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
